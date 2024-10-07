@@ -1,0 +1,91 @@
+﻿@using Fashion.Domin.ApplicationEnums
+
+@model NewDrops
+
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center text-uppercase">
+            Demo Details
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong>Id</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.Id</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Name</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.ClotheName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Brand</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.Brand.Name</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Clothes</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.Clothes.Name</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Sizes</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @((Sizes)Model.Sizes)</p>
+                        </div>
+                    </div>
+
+                  
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Price</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.Price</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="card-text text-uppercase"><strong> Quantities</strong></p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">: @Model.Quantities</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <img src="@Model.ClotheImage" width="100%" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a asp-area="Admin" asp-controller="NewDrops" asp-action="Index" class="btn btn-danger">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

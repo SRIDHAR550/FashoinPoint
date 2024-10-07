@@ -1,0 +1,89 @@
+﻿@model NewDropVM
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-uppercase text-center">Create NewDrops</h2>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12 border-1 border p-4">
+            <form method="post" enctype="multipart/form-data">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.ClotheName" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.ClotheName" class="form-control" />
+                            <span asp-validation-for="@Model.NewDrops.ClotheName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.BrandId" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.BrandId" asp-items="@Model.BrandList" class="form-select"></select>
+                            <option disabled selected>-----select Brand---</option>
+                            <span asp-validation-for="@Model.NewDrops.BrandId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.ClothesID" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.ClothesID" asp-items="@Model.ClothesList" class="form-select"></select>
+                            <option disabled selected>-----select Category---</option>
+                            <span asp-validation-for="@Model.NewDrops.ClothesID" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Sizes" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.Sizes" asp-items="@Model.SizesList" class="form-select"></select>
+
+                            <span asp-validation-for="@Model.NewDrops.Sizes" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                  
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Price" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.Price" class="form-control" />
+                            <span asp-validation-for="@Model.NewDrops.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Quantities" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.Quantities" class="form-control" />
+                            <span asp-validation-for="@Model.NewDrops.Quantities" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                  
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.ClotheImage" class="form-label"></label>
+                            <input type="file" name="files" id="uploadBox" class="form-control" />
+
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <a asp-area="Admin" asp-controller="NewDrops" asp-action="Index" class="btn btn-danger">Back</a>
+                        <button type="submit" class="btn btn-success">Create</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_validationScriptsPartial" />
+}
+

@@ -1,0 +1,83 @@
+﻿@model NewDropVM
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-uppercase text-center">Delete NewDrops</h2>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-8 border-1 border p-4">
+            <form method="post" enctype="multipart/form-data">
+                <input asp-for="@Model.NewDrops.Id" hidden />
+                <input asp-for="@Model.NewDrops.ClotheImage" hidden />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.ClotheName" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.ClotheName" class="form-control" disabled />
+                            <span asp-validation-for="@Model.NewDrops.ClotheName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.BrandId" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.BrandId" asp-items="@Model.BrandList" class="form-select" disabled></select>
+                            <option disabled selected>-----select Brand---</option>
+                            <span asp-validation-for="@Model.NewDrops.BrandId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.ClothesID" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.ClothesID" asp-items="@Model.ClothesList" class="form-select" disabled></select>
+                            <option disabled selected>-----select Category---</option>
+                            <span asp-validation-for="@Model.NewDrops.ClothesID" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Sizes" class="form-label"></label>
+                            <select asp-for="@Model.NewDrops.Sizes" asp-items="@Model.SizesList" class="form-select" disabled></select>
+
+                            <span asp-validation-for="@Model.NewDrops.Sizes" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                  
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Price" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.Price" class="form-control" disabled />
+                            <span asp-validation-for="@Model.NewDrops.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.NewDrops.Quantities" class="form-label"></label>
+                            <input asp-for="@Model.NewDrops.Quantities" class="form-control" disabled />
+                            <span asp-validation-for="@Model.NewDrops.Quantities" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <a asp-area="Admin" asp-controller="NewDrops" asp-action="Index" class="btn btn-warning">Back</a>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_validationScriptsPartial" />
+}
+

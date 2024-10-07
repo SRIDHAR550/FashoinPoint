@@ -1,0 +1,83 @@
+﻿@model List<NewDrops>
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-6 text-uppercase">
+            <h2>NewDrops List</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-area="Admin" asp-controller="NewDrops" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> Crate</a>
+        </div>
+    </div>
+    <hr />
+    @if (Model.Count() > 0)
+    {
+        <table id="table" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Brand</th>
+                    <th class="text-center">ClothesType</th>
+                    <th class="text-center">Sizes</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Quantities</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@item.ClotheName</td>
+                        <td class="text-center">@item.Brand.Name</td>
+                        <td class="text-center" >@item.Clothes.Name</td>
+                        <td class="text-center">@item.Sizes</td>
+                        <td class="text-center">@item.Price</td>
+                        <td class="text-center">@item.Quantities</td>
+                        <td class="d-flex align-items-center justify-content-center">
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-area="Admin" asp-controller="NewDrops" asp-action="Details" asp-route-id="@item.Id"
+                                   class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Details">
+                                    <i class="bi bi-info-circle"></i>
+                                </a>
+                                <a asp-area="Admin" asp-controller="NewDrops" asp-action="Edit" asp-route-id="@item.Id"
+                                   class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a asp-area="Admin" asp-controller="NewDrops" asp-action="Delete" asp-route-id="@item.Id"
+                                   class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center text-uppercase text-warning pt-4">No Records to Show</h2>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    <script>
+        $('.table').DataTable();
+    </script>
+}
+
+
+
+
+
